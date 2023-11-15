@@ -9,13 +9,14 @@ import SwiftUI
 
 struct TaskPageContentView: View {
     
+    @StateObject var viewModel = TaskPageViewModel() // 创建ViewModel实例
+
     // 假设这是存储任务的数组，您可以根据实际情况从模型或网络服务中获取数据
-    @State private var tasks: [Task] = []
     @State private var showingCreateTaskView = false // 控制CreateTaskContentView的显示
     
     var body: some View {
-        List(tasks) { task in
-            TaskRow(task: task)
+        List(viewModel.tasks) { task in
+            TaskRowContentView(viewModel: viewModel, task: task)
         }
         .navigationTitle("Tasks")
         .navigationBarItems(trailing: Button(action: {
@@ -24,50 +25,18 @@ struct TaskPageContentView: View {
             Image(systemName: "plus")
         })
         .sheet(isPresented: $showingCreateTaskView, content: {
-            CreateTaskContentView()
+            CreateTaskContentView { newTask in
+                viewModel.tasks.append(newTask) // 添加新任务到任务列表
+                showingCreateTaskView = false // 关闭CreateTaskContentView
+            }
         })
         .onAppear {
             loadTasks()
         }
     }
-
+    
     private func loadTasks() {
         // 加载或刷新任务数据
     }
     
 }
-
-struct TaskRow: View {
-    let task: Task
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(task.title)
-                .font(.headline)
-            HStack {
-                Text(task.category.rawValue)
-                    .font(.subheadline)
-                Spacer()
-                Text("Priority: \(task.priority)")
-                    .font(.subheadline)
-            }
-            HStack {
-                Text(task.mode.rawValue)
-                    .font(.subheadline)
-                Spacer()
-                if let deadline = task.deadline {
-                    Text("Deadline: \(deadline, formatter: itemFormatter)")
-                        .font(.subheadline)
-                }
-            }
-            // 可以添加更多任务相关的信息
-        }
-    }
-}
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
