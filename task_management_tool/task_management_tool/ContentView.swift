@@ -9,11 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationView {
-            NavigationLink(destination: TaskPageContentView()) {
-                Text("Show Task Page")
+        TabView {
+            TaskPageContentView().tabItem {
+                Label("任务管理", systemImage: "list.bullet")
+            }
+            TimeContentView().tabItem {
+                Label("时间管理", systemImage: "clock")
             }
         }
+
     }
 }
 

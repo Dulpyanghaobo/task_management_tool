@@ -46,10 +46,14 @@ struct TaskRowContentView: View {
                 }
             }
         }
+        .padding()
+        .background(backgroundColor(for: task.category))
+        .cornerRadius(10)
     }
     
     private func handleStatusChange(newStatus: TaskStatus) {
         viewModel.updateTaskStatus(taskId: task.id, newStatus: newStatus)
+        viewModel.filterTasks(by: viewModel.selectedStatus)
     }
 
     private func actionSheet() -> ActionSheet {
@@ -82,6 +86,21 @@ struct TaskRowContentView: View {
         // 添加其他状态的处理逻辑
         default:
             return ActionSheet(title: Text("Operation not available"))
+        }
+    }
+    
+    // 根据任务类别返回相应的背景颜色
+    private func backgroundColor(for category: TaskCategory) -> Color {
+        switch category {
+        case .study:
+            return Color.blue.opacity(0.2) // 淡蓝色
+        case .work:
+            return Color.green.opacity(0.2) // 淡绿色
+        case .life:
+            return Color.orange.opacity(0.2) // 淡橘色
+        // 添加其他类别的颜色
+        default:
+            return Color.gray.opacity(0.2) // 默认颜色
         }
     }
     
