@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA1C56EB2B0530BA00DF310A /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C56EA2B0530BA00DF310A /* TaskModel.swift */; };
+		FA1C56ED2B0531D600DF310A /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C56EC2B0531D600DF310A /* TaskViewModel.swift */; };
+		FA1C570D2B054CC700DF310A /* TaskPageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C570C2B054CC700DF310A /* TaskPageContentView.swift */; };
+		FA1C570F2B054D0000DF310A /* CreateTaskContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C570E2B054D0000DF310A /* CreateTaskContentView.swift */; };
 		FAD43BB02B03541E004B3D49 /* task_management_toolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD43BAF2B03541E004B3D49 /* task_management_toolApp.swift */; };
-		FAD43BB22B03541E004B3D49 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD43BB12B03541E004B3D49 /* Persistence.swift */; };
-		FAD43BB52B03541E004B3D49 /* task_management_tool.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAD43BB32B03541E004B3D49 /* task_management_tool.xcdatamodeld */; };
 		FAD43BB72B03541E004B3D49 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD43BB62B03541E004B3D49 /* ContentView.swift */; };
 		FAD43BB92B035420004B3D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD43BB82B035420004B3D49 /* Assets.xcassets */; };
 		FAD43BBD2B035420004B3D49 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD43BBC2B035420004B3D49 /* Preview Assets.xcassets */; };
@@ -36,10 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA1C56EA2B0530BA00DF310A /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		FA1C56EC2B0531D600DF310A /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		FA1C570C2B054CC700DF310A /* TaskPageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPageContentView.swift; sourceTree = "<group>"; };
+		FA1C570E2B054D0000DF310A /* CreateTaskContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskContentView.swift; sourceTree = "<group>"; };
 		FAD43BAC2B03541E004B3D49 /* task_management_tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = task_management_tool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD43BAF2B03541E004B3D49 /* task_management_toolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_management_toolApp.swift; sourceTree = "<group>"; };
-		FAD43BB12B03541E004B3D49 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		FAD43BB42B03541E004B3D49 /* task_management_tool.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = task_management_tool.xcdatamodel; sourceTree = "<group>"; };
 		FAD43BB62B03541E004B3D49 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FAD43BB82B035420004B3D49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD43BBA2B035420004B3D49 /* task_management_tool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = task_management_tool.entitlements; sourceTree = "<group>"; };
@@ -77,6 +81,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA1C56F82B05416E00DF310A /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				FA1C57042B0543D900DF310A /* ViewModel */,
+				FA1C56EA2B0530BA00DF310A /* TaskModel.swift */,
+				FA1C570C2B054CC700DF310A /* TaskPageContentView.swift */,
+				FA1C570E2B054D0000DF310A /* CreateTaskContentView.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		FA1C57042B0543D900DF310A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA1C56EC2B0531D600DF310A /* TaskViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		FAD43BA32B03541E004B3D49 = {
 			isa = PBXGroup;
 			children = (
@@ -100,13 +123,12 @@
 		FAD43BAE2B03541E004B3D49 /* task_management_tool */ = {
 			isa = PBXGroup;
 			children = (
+				FA1C56F82B05416E00DF310A /* Task */,
 				FAD43BAF2B03541E004B3D49 /* task_management_toolApp.swift */,
-				FAD43BB12B03541E004B3D49 /* Persistence.swift */,
 				FAD43BB62B03541E004B3D49 /* ContentView.swift */,
 				FAD43BB82B035420004B3D49 /* Assets.xcassets */,
 				FAD43BBA2B035420004B3D49 /* task_management_tool.entitlements */,
 				FAD43BBE2B035420004B3D49 /* Info.plist */,
-				FAD43BB32B03541E004B3D49 /* task_management_tool.xcdatamodeld */,
 				FAD43BBB2B035420004B3D49 /* Preview Content */,
 			);
 			path = task_management_tool;
@@ -267,10 +289,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1C570D2B054CC700DF310A /* TaskPageContentView.swift in Sources */,
+				FA1C570F2B054D0000DF310A /* CreateTaskContentView.swift in Sources */,
 				FAD43BB02B03541E004B3D49 /* task_management_toolApp.swift in Sources */,
-				FAD43BB52B03541E004B3D49 /* task_management_tool.xcdatamodeld in Sources */,
+				FA1C56EB2B0530BA00DF310A /* TaskModel.swift in Sources */,
+				FA1C56ED2B0531D600DF310A /* TaskViewModel.swift in Sources */,
 				FAD43BB72B03541E004B3D49 /* ContentView.swift in Sources */,
-				FAD43BB22B03541E004B3D49 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,19 +657,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FAD43BB32B03541E004B3D49 /* task_management_tool.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FAD43BB42B03541E004B3D49 /* task_management_tool.xcdatamodel */,
-			);
-			currentVersion = FAD43BB42B03541E004B3D49 /* task_management_tool.xcdatamodel */;
-			path = task_management_tool.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FAD43BA42B03541E004B3D49 /* Project object */;
 }
