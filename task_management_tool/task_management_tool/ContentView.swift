@@ -10,6 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
+            OKRContentView().tabItem {
+                Label("OKR", systemImage: "list.bullet")
+            }
             TaskPageContentView().tabItem {
                 Label("任务管理", systemImage: "list.bullet")
             }

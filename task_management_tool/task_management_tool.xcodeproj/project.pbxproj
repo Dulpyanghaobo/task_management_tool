@@ -15,6 +15,7 @@
 		FA1C57132B055BD400DF310A /* TaskPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C57122B055BD400DF310A /* TaskPageViewModel.swift */; };
 		FA1C57152B055C9800DF310A /* TaskRowContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C57142B055C9800DF310A /* TaskRowContentView.swift */; };
 		FA1C57182B0578AA00DF310A /* TimeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C57172B0578AA00DF310A /* TimeContentView.swift */; };
+		FA1C571B2B05870100DF310A /* OKRContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1C571A2B05870100DF310A /* OKRContentView.swift */; };
 		FAD43BB02B03541E004B3D49 /* task_management_toolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD43BAF2B03541E004B3D49 /* task_management_toolApp.swift */; };
 		FAD43BB72B03541E004B3D49 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD43BB62B03541E004B3D49 /* ContentView.swift */; };
 		FAD43BB92B035420004B3D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD43BB82B035420004B3D49 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		FA1C57122B055BD400DF310A /* TaskPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPageViewModel.swift; sourceTree = "<group>"; };
 		FA1C57142B055C9800DF310A /* TaskRowContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRowContentView.swift; sourceTree = "<group>"; };
 		FA1C57172B0578AA00DF310A /* TimeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeContentView.swift; sourceTree = "<group>"; };
+		FA1C571A2B05870100DF310A /* OKRContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKRContentView.swift; sourceTree = "<group>"; };
 		FAD43BAC2B03541E004B3D49 /* task_management_tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = task_management_tool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD43BAF2B03541E004B3D49 /* task_management_toolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_management_toolApp.swift; sourceTree = "<group>"; };
 		FAD43BB62B03541E004B3D49 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 			path = Time;
 			sourceTree = "<group>";
 		};
+		FA1C57192B0586EC00DF310A /* OKR */ = {
+			isa = PBXGroup;
+			children = (
+				FA1C571A2B05870100DF310A /* OKRContentView.swift */,
+			);
+			path = OKR;
+			sourceTree = "<group>";
+		};
 		FAD43BA32B03541E004B3D49 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +152,7 @@
 		FAD43BAE2B03541E004B3D49 /* task_management_tool */ = {
 			isa = PBXGroup;
 			children = (
+				FA1C57192B0586EC00DF310A /* OKR */,
 				FA1C57162B05786A00DF310A /* Time */,
 				FA1C56F82B05416E00DF310A /* Task */,
 				FAD43BAF2B03541E004B3D49 /* task_management_toolApp.swift */,
@@ -312,6 +323,7 @@
 				FA1C570D2B054CC700DF310A /* TaskPageContentView.swift in Sources */,
 				FA1C57112B055A9C00DF310A /* TaskDetailContentView.swift in Sources */,
 				FA1C570F2B054D0000DF310A /* CreateTaskContentView.swift in Sources */,
+				FA1C571B2B05870100DF310A /* OKRContentView.swift in Sources */,
 				FAD43BB02B03541E004B3D49 /* task_management_toolApp.swift in Sources */,
 				FA1C56EB2B0530BA00DF310A /* TaskModel.swift in Sources */,
 				FA1C56ED2B0531D600DF310A /* TaskViewModel.swift in Sources */,

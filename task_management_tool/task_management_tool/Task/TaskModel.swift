@@ -77,7 +77,7 @@ struct Task {
 }
 
 // 确保Task符合Codable协议，以便进行JSON编码
-extension Task: Identifiable, Codable {
+extension Task: Identifiable, Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case id
         case title
