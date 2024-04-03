@@ -10,6 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
+            UserFormView().tabItem {
+                Label("信息填写", systemImage: "clock")
+            }
             OKRContentView().tabItem {
                 Label("OKR", systemImage: "list.bullet")
             }

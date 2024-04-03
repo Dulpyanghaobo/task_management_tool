@@ -7,7 +7,6 @@
 import Foundation
 
 class TaskViewModel {
-
     func createTask(id: UUID, title: String, category: TaskCategory, mode: TaskMode, tags: [String], difficulty: Int, urgency: Int, importance: Int, deadline: Date?) {
         // 创建Task对象
         let newTask = Task(id: id,
