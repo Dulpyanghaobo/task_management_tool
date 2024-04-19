@@ -3,31 +3,25 @@
 //  task_management_tool
 //
 //  Created by i564407 on 11/14/23.
-//
+
 
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var viewRouter: ViewRouter
+    
     var body: some View {
-        TabView {
-            UserFormView().tabItem {
-                Label("信息填写", systemImage: "clock")
-            }
-            OKRContentView().tabItem {
-                Label("OKR", systemImage: "list.bullet")
-            }
-            TaskPageContentView().tabItem {
-                Label("任务管理", systemImage: "list.bullet")
-            }
-            TimeContentView().tabItem {
-                Label("时间管理", systemImage: "clock")
-            }
+        switch viewRouter.currentPage {
+        case "HomePageView":
+            HomePageView()
+        case "WelcomeView":
+            WelcomeView()
+        case "RegisterResultView":
+            RegisterResultView()
+        case "OKRResultView":
+            OKRContentView()
+        default:
+            Text("Unknown view")
         }
-
     }
-}
-
-
-#Preview {
-    ContentView()
 }

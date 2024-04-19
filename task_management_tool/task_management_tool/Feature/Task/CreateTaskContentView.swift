@@ -20,7 +20,7 @@ struct CreateTaskContentView: View {
     @State private var updateAt: Date = Date()
     @State private var deadline: Date = Date()
     
-    @Environment(\.presentationMode) var presentationMode  // 用于控制视图的展示方式
+//    @Environment(\.presentationMode) var presentationMode  // 用于控制视图的展示方式
     
     var onSave: (Task) -> Void  // 添加一个新的闭包属性
 
@@ -57,9 +57,9 @@ struct CreateTaskContentView: View {
                     addTask()
                 }
             }
-            .navigationBarTitle("Create Task", displayMode: .inline)
+            .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading: Button("Cancel") {
-                self.presentationMode.wrappedValue.dismiss()  // 关闭当前视图
+//                self.presentationMode.wrappedValue.dismiss()  // 关闭当前视图
             })
         }
     }
@@ -83,7 +83,7 @@ struct CreateTaskContentView: View {
         onSave(newTask) // 调用闭包来传递新创建的任务
 
         // 关闭当前视图
-        presentationMode.wrappedValue.dismiss()
+//        presentationMode.wrappedValue.dismiss()
     }
 }
 

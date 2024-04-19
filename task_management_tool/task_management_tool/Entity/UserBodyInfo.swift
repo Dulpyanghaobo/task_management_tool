@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserInfo {
+struct UserBodyInfo: Decodable {
     var basicInformation: BasicInformation = BasicInformation()
     var vitals: Vitals = Vitals()
     var fitnessAndActivity: FitnessAndActivity = FitnessAndActivity()
@@ -21,7 +21,7 @@ struct UserInfo {
     var labAndTestResults: LabAndTestResults = LabAndTestResults()
 }
 
-struct BasicInformation {
+struct BasicInformation: Decodable {
     var height: Double = 0.0
     var weight: Double = 0.0
     var dateOfBirth: Date = Date()
@@ -30,15 +30,15 @@ struct BasicInformation {
 }
 
 // Example for Vitals struct, others would follow a similar pattern
-struct Vitals {
+struct Vitals: Decodable {
     var heartRate: Int = 0
-    var bloodPressure: (systolic: Int, diastolic: Int) = (0, 0)
+//    var bloodPressure: (systolic: Int, diastolic: Int) = (0, 0)
     var bodyTemperature: Double = 36.5 // Average human body temperature in Celsius
     var respiratoryRate: Int = 0
     var ecgSamples: [Double] = []
 }
 
-struct FitnessAndActivity {
+struct FitnessAndActivity: Decodable {
     var steps: Int = 0
     var distanceWalkedOrRun: Double = 0.0
     var flightsClimbed: Int = 0
@@ -48,55 +48,55 @@ struct FitnessAndActivity {
     var workouts: [Workout] = []
 }
 
-struct Nutrition {
+struct Nutrition: Decodable {
     var dietaryEnergy: Int = 0
     var nutritionDetails: NutritionDetails = NutritionDetails()
     var waterIntake: Double = 0.0
     var caffeineIntake: Double = 0.0
 }
 
-struct Sleep {
+struct Sleep: Decodable {
     var sleepAnalysis: [SleepPeriod] = []
 }
 
-struct MindfulnessAndStressReduction {
+struct MindfulnessAndStressReduction: Decodable {
     var mindfulMinutes: Int = 0
     var stressLevel: Int = 0
 }
 
 
-struct SleepPeriod {
+struct SleepPeriod: Decodable {
     var inBed: DateInterval = DateInterval(start: Date(), duration: 0)
     var asleep: DateInterval = DateInterval(start: Date(), duration: 0)
 }
 
-struct ReproductiveHealth {
+struct ReproductiveHealth: Decodable {
     var menstrualCycles: [MenstrualCycle] = []
     var ovulationTests: [OvulationTest] = []
     var sexualActivity: [SexualActivityRecord] = []
 }
 
-struct MenstrualCycle {
+struct MenstrualCycle: Decodable {
     var startDate: Date = Date()
     var endDate: Date = Date()
 }
 
-struct OvulationTest {
+struct OvulationTest: Decodable {
     var date: Date = Date()
     var result: Bool = false
 }
 
-struct SexualActivityRecord {
+struct SexualActivityRecord: Decodable {
     var date: Date = Date()
     var protected: Bool = false
 }
 
-struct UVExposure {
+struct UVExposure: Decodable {
     var uvIndex: Int = 0 // Assuming 0 as a safe default meaning no exposure
     var uvExposureMinutes: Int = 0 // Default to no exposure
 }
 
-struct MobilityMetrics {
+struct MobilityMetrics: Decodable {
     var walkingSpeed: Double = 0.0 // Defaults suggesting no movement
     var stepLength: Double = 0.0
     var walkingAsymmetry: Double = 0.0
@@ -106,24 +106,24 @@ struct MobilityMetrics {
     var sixMinuteWalkTestDistance: Double = 0.0
 }
 
-struct Symptoms {
+struct Symptoms: Decodable {
     var symptomTypes: [SymptomType] = []
 }
 
-struct LabAndTestResults {
+struct LabAndTestResults: Decodable {
     var bloodGlucose: Double = 0.0 // Default values indicating no data
     var bloodOxygenSaturation: Double = 0.0
     var inhalerUsage: Int = 0
 }
 
-struct Workout {
+struct Workout: Decodable {
     var type: WorkoutType = .running // Default to a common workout type
     var duration: TimeInterval = 0.0 // Indicates no duration by default
     var intensity: WorkoutIntensity = .low // Default to low intensity
     var caloriesBurned: Int = 0 // Indicates no activity
 }
 
-struct NutritionDetails {
+struct NutritionDetails: Decodable {
     var carbohydrates: Double = 0.0
     var fats: Double = 0.0
     var proteins: Double = 0.0
@@ -133,17 +133,17 @@ struct NutritionDetails {
     var caffeineIntake: Double = 0.0 // Default suggesting no intake
 }
 
-struct Vitamin {
+struct Vitamin: Decodable {
     var type: VitaminType = .vitaminA // Default to Vitamin A
     var amount: Double = 0.0 // Default amount
 }
 
-struct Mineral {
+struct Mineral: Decodable {
     var type: MineralType = .calcium // Default to Calcium
     var amount: Double = 0.0 // Default amount
 }
 
-enum MineralType: String {
+enum MineralType: String, Decodable {
     case calcium
     case iron
     case magnesium
@@ -152,7 +152,7 @@ enum MineralType: String {
     // Add more as needed
 }
 
-enum SymptomType: String, CaseIterable {
+enum SymptomType: String, CaseIterable, Decodable {
     case appetiteChanges = "Appetite Changes"
     case dizziness = "Dizziness"
     case fatigue = "Fatigue"
@@ -163,13 +163,13 @@ enum SymptomType: String, CaseIterable {
 }
 
 
-enum WorkoutIntensity: String {
+enum WorkoutIntensity: String, Decodable {
     case low
     case medium
     case high
 }
 
-enum VitaminType: String {
+enum VitaminType: String, Decodable {
     case vitaminA
     case vitaminC
     case vitaminD
@@ -180,7 +180,7 @@ enum VitaminType: String {
     // Add more as needed
 }
 
-enum WorkoutType: String {
+enum WorkoutType: String, Decodable {
     case running
     case cycling
     case swimming
@@ -190,11 +190,11 @@ enum WorkoutType: String {
     // Add more as needed
 }
 
-enum BiologicalSex: String, CaseIterable {
+enum BiologicalSex: String, CaseIterable, Decodable {
     case male = "Male", female = "Female", other = "Other"
 }
 
 
-enum FitzpatrickSkinType: Int, CaseIterable {
+enum FitzpatrickSkinType: Int, CaseIterable, Decodable {
     case typeI = 1, typeII, typeIII, typeIV, typeV, typeVI
 }

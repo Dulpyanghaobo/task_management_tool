@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserFormView: View {
-    @State private var userInfo = UserInfo()
+    @State private var userInfo = UserBodyInfo()
 
     var body: some View {
         NavigationView {
@@ -27,7 +27,7 @@ struct UserFormView: View {
                 Button("Save", action: {
                 })
             }
-            .navigationBarTitle("Health Profile", displayMode: .inline)
+            .navigationBarTitle("", displayMode: .inline)
         }
     }
 }
@@ -78,13 +78,13 @@ struct VitalsSection: View {
             HStack {
                 Text("Blood Pressure")
                     .padding(.leading, 0)
-                TextField("", value: $vitals.bloodPressure.systolic, format: .number)
-                    .keyboardType(.numberPad)
-                    .frame(minWidth: 0, maxWidth: 80, alignment: .trailing).multilineTextAlignment(.trailing)
-                Text("/")
-                TextField("", value: $vitals.bloodPressure.diastolic, format: .number)
-                    .keyboardType(.numberPad)
-                    .frame(minWidth: 0, maxWidth: 80, alignment: .trailing).multilineTextAlignment(.trailing)
+//                TextField("", value: $vitals.bloodPressure.systolic, format: .number)
+//                    .keyboardType(.numberPad)
+//                    .frame(minWidth: 0, maxWidth: 80, alignment: .trailing).multilineTextAlignment(.trailing)
+//                Text("/")
+//                TextField("", value: $vitals.bloodPressure.diastolic, format: .number)
+//                    .keyboardType(.numberPad)
+//                    .frame(minWidth: 0, maxWidth: 80, alignment: .trailing).multilineTextAlignment(.trailing)
             }
             HStack {
                 Text("Body Temperature (°C)")
@@ -155,13 +155,21 @@ struct NutritionSection: View {
     
     var body: some View {
         Section(header: Text("Nutrition")) {
-            TextField("Dietary Energy (Calories Consumed)", value: $nutrition.dietaryEnergy, format: .number)
-                .keyboardType(.numberPad)
-            TextField("Water Intake (L)", value: $nutrition.waterIntake, format: .number)
-                .keyboardType(.decimalPad)
-            TextField("Caffeine Intake (mg)", value: $nutrition.caffeineIntake, format: .number)
-                .keyboardType(.decimalPad)
-            // Navigation to NutritionDetails editing could go here
+            HStack {
+                Text("Dietary Energy (Calories Consumed)")
+                TextField("Dietary Energy (Calories Consumed)", value: $nutrition.dietaryEnergy, format: .number)
+                    .keyboardType(.numberPad).multilineTextAlignment(.trailing)
+            }
+            HStack {
+                Text("Water Intake (L)")
+                TextField("Water Intake (L)", value: $nutrition.waterIntake, format: .number)
+                    .keyboardType(.decimalPad).multilineTextAlignment(.trailing)
+            }
+            HStack {
+                Text("Caffeine Intake (mg)")
+                TextField("Caffeine Intake (mg)", value: $nutrition.caffeineIntake, format: .number)
+                    .keyboardType(.decimalPad).multilineTextAlignment(.trailing)
+            }
         }
     }
 }
@@ -171,10 +179,16 @@ struct MindfulnessSection: View {
     
     var body: some View {
         Section(header: Text("Mindfulness and Stress Reduction")) {
-            TextField("Mindful Minutes", value: $mindfulness.mindfulMinutes, format: .number)
-                .keyboardType(.numberPad)
-            TextField("Stress Level", value: $mindfulness.stressLevel, format: .number)
-                .keyboardType(.numberPad)
+            HStack {
+                Text("Stress Level")
+                TextField("Stress Level", value: $mindfulness.stressLevel, format: .number)
+                    .keyboardType(.numberPad).multilineTextAlignment(.trailing)
+            }
+            HStack {
+                Text("Mindful Minutes")
+                TextField("Mindful Minutes", value: $mindfulness.mindfulMinutes, format: .number)
+                    .keyboardType(.numberPad).multilineTextAlignment(.trailing)
+            }
         }
     }
 }
@@ -184,10 +198,16 @@ struct UVExposureSection: View {
     
     var body: some View {
         Section(header: Text("UV Exposure")) {
-            TextField("UV Index", value: $uvExposure.uvIndex, format: .number)
-                .keyboardType(.numberPad)
-            TextField("UV Exposure Minutes", value: $uvExposure.uvExposureMinutes, format: .number)
-                .keyboardType(.numberPad)
+            HStack {
+                Text("UV Index")
+                TextField("UV Index", value: $uvExposure.uvIndex, format: .number)
+                    .keyboardType(.numberPad).multilineTextAlignment(.trailing)
+            }
+            HStack {
+                Text("UV Exposure Minutes")
+                TextField("UV Exposure Minutes", value: $uvExposure.uvExposureMinutes, format: .number)
+                    .keyboardType(.numberPad).multilineTextAlignment(.trailing)
+            }
         }
     }
 }
