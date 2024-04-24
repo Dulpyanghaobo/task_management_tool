@@ -43,10 +43,8 @@ struct TaskPageContentView: View {
                     
                     // 显示过滤后的任务列表
                     
-                    List {
-                        ForEach(viewModel.filteredTasks) { task in
-                            TaskRowContentView(viewModel: viewModel, task: task)
-                        }
+                    List(viewModel.filteredTasks) { task in
+                        TaskRowContentView(viewModel: viewModel, task: task)
                     }
                     .sheet(isPresented: $showingCreateTaskView, content: {
                         CreateTaskContentView { newTask in

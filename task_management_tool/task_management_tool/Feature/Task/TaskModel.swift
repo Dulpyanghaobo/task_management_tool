@@ -25,7 +25,6 @@ enum TaskMode: String, CaseIterable {
 
 // 定义任务状态的枚举
 enum TaskStatus: String, CaseIterable {
-    case all = "All"
     case created = "To do"
     case inProgress = "In progress"
     case isBlock = "Blocked"
@@ -35,7 +34,7 @@ enum TaskStatus: String, CaseIterable {
     // 这里可以根据需要添加更多状态
 }
 // 定义任务模型
-struct Task {
+struct Task: Identifiable {
     let id: UUID                 // 唯一标识符
     var title: String            // 任务标题
     var category: TaskCategory   // 任务分类
@@ -78,7 +77,7 @@ struct Task {
 }
 
 // 确保Task符合Codable协议，以便进行JSON编码
-extension Task: Identifiable, Codable, Equatable {
+extension Task: Codable, Equatable {
     enum CodingKeys: String, CodingKey {
         case id
         case title
