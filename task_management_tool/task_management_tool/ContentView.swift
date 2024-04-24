@@ -19,9 +19,16 @@ struct ContentView: View {
         case "RegisterResultView":
             RegisterResultView()
         case "OKRResultView":
-            OKRContentView()
+            LandingPageView()
+        case "ActionGenerateView":
+            ActionGenerateView()
+        case "ActionModeView":
+            ActionModeView()
+        case "TaskPageContentView":
+            TaskPageContentView()
         default:
             Text("Unknown view")
         }
+            
     }
 }

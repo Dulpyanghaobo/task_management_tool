@@ -18,7 +18,7 @@ struct task_management_toolApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(viewRouter).background(AppColors.systemBackgroundColor)
+            ContentView().environmentObject(viewRouter)
         }
     }
     

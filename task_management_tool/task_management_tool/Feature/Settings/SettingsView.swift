@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @State private var brightness: Double = UIScreen.main.brightness
 
     var body: some View {
         VStack {
@@ -43,10 +44,20 @@ struct SettingsView: View {
                     NavigationLink(destination: TouchFeedbackSettingsView()) {
                         SettingItemRow(symbolsImageStr: "square.and.pencil.circle", label: "Touch Feedback")
                     }
-                    // Brightness adjustment is kept as a slider without NavigationLink
-                    Slider(value: .constant(0.5), in: 0...1) {
-                        Text("Brightness")
+                    HStack {
+                        Text("Brightness").font(.system(size: 12, weight: .regular)).foregroundColor(.black)
+                        // Brightness adjustment is kept as a slider without NavigationLink
+                        Slider(value: $brightness, in: 0...1, step: 0.01, onEditingChanged: { changed in
+                            UIScreen.main.brightness = brightness
+                        }) {
+                            Text("Brightness")
+                        }
                     }
+
+                    
+                }.onAppear {
+                    // 初始化时同步亮度值
+                    self.brightness = UIScreen.main.brightness
                 }
 
                 // Third Section: General
@@ -61,7 +72,7 @@ struct SettingsView: View {
                         SettingItemRow(symbolsImageStr: "lock.badge.clock.fill", label: "Privacy Policy")
                     }
                     NavigationLink(destination: PrivacyPolicyView()) {
-                        SettingItemRow(symbolsImageStr: "figure", label: "Acessibility")
+                        SettingItemRow(symbolsImageStr: "exclamationmark.bubble", label: "Report")
                     }
                     Toggle(isOn: .constant(true)) {
                         Text("Dark Mode")

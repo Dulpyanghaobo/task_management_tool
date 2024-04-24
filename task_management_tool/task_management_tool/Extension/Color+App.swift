@@ -9,21 +9,34 @@ import SwiftUI
 
 struct AppColors {
     // Core Color
-    static let primaryColor = Color(hex: "003366")
-    static let secondaryColor = Color(hex: "6699CC")
+    static let primaryColor = Color(hex: "5F33E1")
+    static let secondaryColor = Color(hex: "EDE8FF")
     static let systemBackgroundColor = Color(hex: "EFF1F5")
+    static let tabbarBackgroundColor = Color(hex: "EDE8FF")
+    static let tabbarTintColor = Color(hex: "5F33E1")
+    
+    static let homePageProgress1Color = Color(hex: "E7F3FF")
+    static let homePageProgress2Color = Color(hex: "FFE9E1")
+    static let homePageProgress2TintIconColor = Color(hex: "F478B8")
 
+    static let homePageProgress3Color = Color(hex: "EDE4FF")
+    static let homePageProgress4Color = Color(hex: "FFE6D4")
+    static let homePageProgress5Color = Color(hex: "FFF6D4")
+
+    
+    
     //user center
     static let segmentFontColor = Color(hex: "587EFF")
     static let unselectedColor = Color(hex: "9E9FA1")
     static let nameTitleColor = Color(hex: "000000")
     static let sectionTitleColor = Color(hex: "9098A3")
     static let systemSettingsColor = Color(hex: "686363")
-    
+    static let projectTitleColor = Color(hex: "6E6A7C")
+
     static let primaryButtonColor = Color(hex: "1A237E")
     static let secondaryButtonColor = Color(hex: "B3E5FC")
     static let thirdButtonColor = Color(hex: "4CAF50")
-
+    
     static let textFieldColor = Color(hex: "E0E0E0")
     static let textFieldBackgroundColor = Color(hex: "F7F8F9")
     static let textFieldBorderColor = Color(hex: "E8ECF4")

@@ -13,43 +13,62 @@ struct TaskPageContentView: View {
     
     // 假设这是存储任务的数组，您可以根据实际情况从模型或网络服务中获取数据
     @State private var showingCreateTaskView = false // 控制CreateTaskContentView的显示
-    
+    @State private var selectedDate: Date = Date()
+
     var body: some View {
         NavigationView { // 包裹在NavigationView内
-            VStack {
-                // 状态过滤栏
-                Picker("Status", selection: $viewModel.selectedStatus) {
-                    Text("All").tag(TaskStatus?.none)
-                    ForEach(TaskStatus.allCases, id: \.self) { status in
-                        Text(status.rawValue).tag(TaskStatus?.some(status))
+            ScrollView {
+                VStack {
+                    HorizontalCalendarView(selectedDate: $selectedDate).onAppear{
+                        selectedDate = Date()
                     }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
-                .onChange(of: viewModel.selectedStatus) { newStatus in
-                    viewModel.filterTasks(by: newStatus)
-                }
-                // 显示过滤后的任务列表
-                
-                List(viewModel.filteredTasks) { task in
-                    TaskRowContentView(viewModel: viewModel, task: task)
-                }
-                .sheet(isPresented: $showingCreateTaskView, content: {
-                    CreateTaskContentView { newTask in
-                        viewModel.tasks.append(newTask) // 添加新任务到任务列表
-                        viewModel.filterTasks(by: viewModel.selectedStatus) // 更新过滤后的任务列表
-                        showingCreateTaskView = false // 关闭CreateTaskContentView
+                    ScrollView(.horizontal, showsIndicators: false) {
+                                        HStack {
+                                            ForEach(TaskStatus.allCases, id: \.self) { status in
+                                                Button(action: {
+                                                    viewModel.selectedStatus = status
+                                                    viewModel.filterTasks(by: status)
+                                                }) {
+                                                    Text(status.rawValue)
+                                                        .padding(.vertical, 8).padding(.horizontal, 16)
+                                                        .font(.system(size: 14, weight: .semibold))
+                                                        .background(viewModel.selectedStatus == status ? AppColors.primaryColor : AppColors.secondaryColor)
+                                                        .foregroundColor(viewModel.selectedStatus == status ? .white : AppColors.primaryColor)
+                                                        .cornerRadius(8)
+                                                }
+                                            }
+                                        }
+                                        .padding()
+                                    }
+                    
+                    // 显示过滤后的任务列表
+                    
+                    List {
+                        ForEach(viewModel.filteredTasks) { task in
+                            TaskRowContentView(viewModel: viewModel, task: task)
+                        }
                     }
-                })
-            }
-        .navigationTitle("Tasks")
-        .navigationBarItems(trailing: Button(action: {
-            showingCreateTaskView = true
-        }) {
-            Image(systemName: "plus")
-        })
+                    .sheet(isPresented: $showingCreateTaskView, content: {
+                        CreateTaskContentView { newTask in
+                            viewModel.tasks.append(newTask) // 添加新任务到任务列表
+                            viewModel.filterTasks(by: viewModel.selectedStatus) // 更新过滤后的任务列表
+                            showingCreateTaskView = false // 关闭CreateTaskContentView
+                        }
+                    })
+                }
+            }.background(
+                Image("background")  // 替换 "backgroundImageName" 为您的图片资源名
+                    .resizable()  // 确保图片可以调整大小以适应容器
+                    .scaledToFill()  // 填充整个可用空间，可能会裁剪图片
+                    .edgesIgnoringSafeArea(.all)  // 让背景图片延伸到安全区域之外
+            )
+            .navigationBarTitle("\(selectedDate.monthDayFormatted())'s Tasks", displayMode: .inline)
+.navigationBarBackButtonHidden().navigationBarItems(trailing: Button(action: {
+    showingCreateTaskView = true
+}, label: {
+                Image(systemName: "plus").foregroundColor(.black)
+            }))
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             loadTasks()
         }

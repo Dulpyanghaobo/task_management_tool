@@ -25,12 +25,13 @@ enum TaskMode: String, CaseIterable {
 
 // 定义任务状态的枚举
 enum TaskStatus: String, CaseIterable {
-    case created = "创建"
-    case inProgress = "执行中"
-    case isBlock = "阻塞"
-    case waiting = "等待"
-    case completed = "完成"
-    case Settlement = "结算"
+    case all = "All"
+    case created = "To do"
+    case inProgress = "In progress"
+    case isBlock = "Blocked"
+    case waiting = "Waiting"
+    case completed = "Completed"
+    case Settlement = "Settlement"
     // 这里可以根据需要添加更多状态
 }
 // 定义任务模型

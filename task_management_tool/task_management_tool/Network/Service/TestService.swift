@@ -20,7 +20,7 @@ extension TestService {
     }
     
     var baseURL: URL {
-        return AppEnvironment.baseURL
+        return APIEnvironment.baseURL(for: .v1)
     }
 }
 
