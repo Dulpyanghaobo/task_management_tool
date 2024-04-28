@@ -12,50 +12,38 @@ struct ProfileView: View {
     @State private var isActive = false
 
     @State private var selectedSegment = 0
-    let user: UserInfo = UserInfo(name: "John Doe", avatar: "person.fill")
+    let user: UserInfo = UserInfo(name: "Hab Yang", avatar: "https://dulpyhb-1319648537.cos.ap-shanghai.myqcloud.com/Butler%2FProfile%2FWechatIMG1296.jpg")
     
     var body: some View {
         NavigationView {
-            
             ZStack(alignment: .topTrailing) {
-                ScrollView {
                     VStack {
                         // User Info Section
                         VStack {
-                            NetworkImageView(urlString: "https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg")
-                            Text(user.name)
-                                .font(.title)
-                                .padding()
+                            NetworkImageView(urlString: user.avatar)
+                            Text(user.name).font(.system(size: 24,weight: .bold))
                         }
                         .padding([.top, .leading, .trailing])
                         
                         // Segment Control
                         CustomSegmentedControl(selectedSegment: $selectedSegment)
                         
-                        DetailView(selectedSegment: $selectedSegment)
+                        DetailView(selectedSegment: $selectedSegment, userInfo: user)
                     }
-                }.background(AppColors.systemBackgroundColor)
+                    
                 
                 Button(action: {
                     self.isActive = true
-                    
-                    //                let userManager = NetworkManager<TestService>()
-                    //                userManager.request(target: .test) { (result: Result<TestModel, NetworkError>) in
-                    //                    switch result {
-                    //                    case .success(let user):
-                    //                        print("User: \(user)")
-                    //                    case .failure(let error):
-                    //                        print("Error: \(error)")
-                    //                    }
-                    //                }
                 }) {
                     Image(systemName: "gearshape.fill")
                         .font(.title)
                         .foregroundColor(.gray)
                         .padding() // Add padding to make the button easier to tap
                 }
+                
                 .padding(.trailing, 20) // Right padding for button alignment
                 .padding(.top, -8)
+
                 NavigationLink(
                     destination: SettingsView(),
                     isActive: $isActive
@@ -63,24 +51,32 @@ struct ProfileView: View {
                     EmptyView()
                 }
                 .hidden()
-            }.navigationBarHidden(true)  // 隐藏导航栏
+            }
+            .background(
+                Image("background")  // 替换 "backgroundImageName" 为您的图片资源名
+                    .resizable()  // 确保图片可以调整大小以适应容器
+                    .scaledToFill()  // 填充整个可用空间，可能会裁剪图片
+                    .edgesIgnoringSafeArea(.all)  // 让背景图片延伸到安全区域之
+            )
+            .navigationBarHidden(true)  // 隐藏导航栏
         }
-
     }
 }
 
 struct DetailView: View {
     @Binding var selectedSegment: Int
     
+    var userInfo :UserInfo
+    
     var body: some View {
         Group {
             switch selectedSegment {
             case 0:
-                Text("Status details here")
+                StatusView(emotionalStatusInfo: userInfo.emotionalStatusInfo, userControlState: userInfo.userControlState, topic: userInfo.topic)
             case 1:
-                Text("Activity details here")
+                AchievementsView(achievements: userInfo.achievements)
             case 2:
-                Text("Achievements details here")
+                ActivityDetailView(activityDetails: userInfo.activityDetails)
             default:
                 Text("Unknown selection")
             }
@@ -97,7 +93,8 @@ struct CustomSegmentedControl: View {
         HStack {
             ForEach(titles.indices, id: \.self) { index in
                 Text(titles[index])
-                    .foregroundColor(selectedSegment == index ? AppColors.segmentFontColor : AppColors.unselectedColor)
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(selectedSegment == index ? AppColors.primaryColor : AppColors.unselectedColor)
                     .padding()
                     .background(Color.clear)
                     .clipShape(Capsule())
@@ -108,7 +105,6 @@ struct CustomSegmentedControl: View {
                     }
             }
         }
-        .padding(.vertical, 5)
         .padding(.horizontal)
     }
 }

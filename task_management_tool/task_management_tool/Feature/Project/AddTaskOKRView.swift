@@ -9,13 +9,19 @@ import SwiftUI
 
 struct AddTaskOKRView: View {
     @State private var showingActionSheet: Bool = false // 控制ActionSheet的显示
-    @State private var taskType: String = ""
     @State private var taskName: String = ""
     @State private var taskDescription: String = ""
+    @State private var tags: String = ""
     @State private var startDate: Date = Date()
     @State private var endDate: Date = Date()
+    @State private var difficulty: Int = 1
+    @State private var urgency: Int = 1
+    @State private var importance: Int = 1
+    @State private var selectedCategory: TaskCategory = .study
+    @State private var selectedMode: TaskMode = .once
     @State private var logoImage: UIImage? = nil
-    let taskTypes = ["General", "Marketing", "Development", "Design"] // 可选择的任务类型
+    
+    var onSave: (Task) -> Void  // 添加一个新的闭包属性
 
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -24,7 +30,7 @@ struct AddTaskOKRView: View {
                     Image(systemName: "star.fill").frame(width: 32, height: 32).background(AppColors.homePageProgress2Color).foregroundColor(AppColors.homePageProgress2TintIconColor).cornerRadius(8)
                     VStack {
                         Text("Task Group").foregroundColor(AppColors.projectTitleColor).font(.system(size: 9, weight: .regular))
-                        Text("Work").foregroundColor(.black).font(.system(size: 14, weight: .semibold))
+                        Text(selectedCategory.rawValue).foregroundColor(.black).font(.system(size: 14, weight: .semibold))
                     }
                     Spacer()
                     Button(action: {
@@ -82,8 +88,27 @@ struct AddTaskOKRView: View {
                     .background(Color.white)
                     .cornerRadius(16)
                     .shadow(radius: 4)
-
-                
+                HStack {
+                    Stepper("difficulty: \(difficulty)", value: $difficulty, in: 1...5).foregroundColor(.black).font(.system(size: 14, weight: .semibold))
+                }.padding(.horizontal, 16)
+                    .padding(.vertical, 16)
+                    .background(Color.white)
+                    .cornerRadius(16)
+                    .shadow(radius: 4)
+                HStack {
+                    Stepper("Urgency: \(urgency)", value: $urgency, in: 1...5).foregroundColor(.black).font(.system(size: 14, weight: .semibold))
+                }.padding(.horizontal, 16)
+                    .padding(.vertical, 16)
+                    .background(Color.white)
+                    .cornerRadius(16)
+                    .shadow(radius: 4)
+                HStack {
+                    Stepper("Importance: \(importance)", value: $importance, in: 1...5).foregroundColor(.black).font(.system(size: 14, weight: .semibold))
+                }.padding(.horizontal, 16)
+                    .padding(.vertical, 16)
+                    .background(Color.white)
+                    .cornerRadius(16)
+                    .shadow(radius: 4)
                 HStack {
                     Image("calendar")
                         .frame(width: 32, height: 32)
@@ -131,7 +156,7 @@ struct AddTaskOKRView: View {
             }.padding(.all, 24)
             
             Button("Add Task") {
-                // 添加任务的逻辑
+                addTask()
             }
             .foregroundColor(.white)
             .padding()
@@ -150,10 +175,32 @@ struct AddTaskOKRView: View {
     }
     
     func actionSheet() -> ActionSheet {
-        ActionSheet(title: Text("Select Task Type"), buttons: taskTypes.map { type in
-            .default(Text(type)) {
-                taskType = type
+        ActionSheet(title: Text("Select Task Type"), buttons: TaskCategory.allCases.map { category in
+            .default(Text(category.rawValue)) {
+                selectedCategory = category
             }
         } + [.cancel()])
+    }
+    
+    private func addTask() {
+        let newTaskTags = tags.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
+        let newTask = Task(
+            id: UUID(), title: taskName,
+            category: selectedCategory,
+            mode: selectedMode,
+            tags: newTaskTags,
+            difficulty: difficulty,
+            urgency: urgency,
+            status: .created,
+            createAt: startDate,
+            updateAt: endDate,
+            deadline: endDate,
+            importance: importance
+        )
+        // 在这里处理新任务的保存逻辑，比如更新到一个任务数组或发送到后端
+        onSave(newTask) // 调用闭包来传递新创建的任务
+        
+        // 关闭当前视图
+        // presentationMode.wrappedValue.dismiss()
     }
 }

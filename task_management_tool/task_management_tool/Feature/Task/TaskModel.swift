@@ -9,11 +9,11 @@ import Foundation
 
 // 定义任务分类的枚举
 enum TaskCategory: String, CaseIterable {
-    case study = "学习"
-    case work = "工作"
-    case life = "生活"
-    case technology = "技术"
-    case thinking = "思考"
+    case study = "study"
+    case work = "work"
+    case life = "life"
+    case technology = "tech"
+    case thinking = "thinking"
 }
 
 // 定义任务模式的枚举

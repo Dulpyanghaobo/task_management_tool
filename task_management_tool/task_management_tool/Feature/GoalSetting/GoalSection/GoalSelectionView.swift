@@ -54,6 +54,3 @@ struct MultipleSelectionRow: View {
         }
     }
 }
-#Preview {
-    GoalSelectionView(goalType: .ability)
-}

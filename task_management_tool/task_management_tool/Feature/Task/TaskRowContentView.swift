@@ -17,38 +17,36 @@ struct TaskRowContentView: View {
 
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(task.title)
-                .font(.headline)
-            HStack {
-                Text(task.category.rawValue)
-                    .font(.subheadline)
-                Spacer()
-                Text("Priority: \(task.priority)")
-                    .font(.subheadline)
-                Spacer()
-                Button(action: {
-                    showingSheet = true
-                }) {
-                    Text(buttonTitle(for: task.status)).foregroundColor(.blue)
+        HStack(alignment: .top, spacing: 4) {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack (alignment: .center) {
+                    Text(task.category.rawValue).font(.system(size: 14, weight: .regular)).foregroundColor(AppColors.projectTitleColor)
+                    Spacer()
+                    Image(systemName: "star.fill").frame(width: 32, height: 32).foregroundColor(AppColors.primaryColor).background(AppColors.secondaryColor).cornerRadius(8)
                 }
-                .actionSheet(isPresented: $showingSheet) {
-                    actionSheet()
-                }
-            }
-            HStack {
-                Text(task.mode.rawValue)
-                    .font(.subheadline)
-                Spacer()
-                if let deadline = task.deadline {
-                    Text("Deadline: \(deadline, formatter: itemFormatter)")
-                        .font(.subheadline)
+                Text(task.title).font(.system(size: 16, weight: .regular)).foregroundColor(.black)
+                HStack {
+                    HStack (alignment: .top) {
+                        Image(systemName: "star").font(.system(size: 12, weight: .medium)).foregroundColor(AppColors.primaryColor)
+                        if let deadline = task.deadline {
+                            Text("\(deadline, formatter: itemFormatter)")
+                                .font(.system(size: 12, weight: .medium)).foregroundColor(AppColors.primaryColor)
+                        }
+                    }
+                    Spacer()
+                    Button(action: {
+                        showingSheet = true
+                    }) {
+                        Text(buttonTitle(for: task.status)).font(.system(size: 12, weight: .regular)).padding(.horizontal, 8).padding(.vertical, 4).background(statusBackgroundColor(for: task.status)).foregroundColor(statusForegroundColor(for: task.status)).cornerRadius(12)
+                    }
+                    .actionSheet(isPresented: $showingSheet) {
+                        actionSheet()
+                    }
                 }
             }
         }
-        .padding()
-        .background(backgroundColor(for: task.category))
-        .cornerRadius(10)
+        .padding(.horizontal, 4)
+        .cornerRadius(24)
     }
     
     private func handleStatusChange(newStatus: TaskStatus) {
@@ -89,8 +87,41 @@ struct TaskRowContentView: View {
         }
     }
     
-    // 根据任务类别返回相应的背景颜色
-    private func backgroundColor(for category: TaskCategory) -> Color {
+    private func statusBackgroundColor(for status: TaskStatus) -> Color {
+        switch status {
+        case .created:
+            return AppColors.secondaryColor
+        case .inProgress:
+            return AppColors.secondary2Color
+        case .isBlock:
+            return AppColors.secondary3Color
+        case .waiting:
+            return AppColors.secondary4Color
+        case .completed:
+            return AppColors.secondary5Color
+        case .Settlement:
+            return AppColors.secondary6Color
+        }
+    }
+    
+    private func statusForegroundColor(for status: TaskStatus) -> Color {
+        switch status {
+        case .created:
+            return AppColors.primaryColor
+        case .inProgress:
+            return AppColors.primary2Color
+        case .isBlock:
+            return AppColors.primary3Color
+        case .waiting:
+            return AppColors.primary4Color
+        case .completed:
+            return AppColors.primary5Color
+        case .Settlement:
+            return AppColors.primary6Color
+        }
+    }
+    
+    private func foregroundColor(for category: TaskCategory) -> Color {
         switch category {
         case .study:
             return Color.blue.opacity(0.2) // 淡蓝色

@@ -42,6 +42,10 @@ class TaskPageViewModel: ObservableObject {
 //            }.resume()
 //        }
 //    }
+    func addTask(_ task: Task) {
+        tasks.append(task)
+        filterTasks(by: selectedStatus)
+    }
     
     func filterTasks(by status: TaskStatus?) {
         selectedStatus = status

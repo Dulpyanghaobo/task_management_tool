@@ -192,6 +192,12 @@ struct TaskGroupsSection: View {
             HStack(spacing: 4) {
                 Text("Task Groups").font(.system(size: 22, weight: .semibold))
                 Text("4").font(.system(size: 12, weight: .medium)).frame(width: 16, height: 16)  .foregroundColor(AppColors.tabbarTintColor).background(AppColors.tabbarBackgroundColor.opacity(8)) .clipShape(RoundedRectangle(cornerRadius: 8))
+                Spacer()
+                NavigationLink(destination: AddTaskOKRView(onSave: { task in
+                    
+                })) {
+                    Image(systemName: "plus.circle.fill").foregroundColor(AppColors.primaryColor).font(.system(size: 22, weight: .bold))
+                }
             }
             
             ScrollView(.vertical, showsIndicators: false) {
@@ -218,8 +224,7 @@ struct TaskGroupCard: View {
             // 添加更多详细信息和样式
         }
         .padding()
-        .frame(width: .infinity)
-        .background(.white)
+        .background(AppColors.whiteColor)
         .cornerRadius(16)
     }
 }
@@ -231,8 +236,10 @@ struct AnnualOKRSection: View {
                 Text("OKR").font(.system(size: 22, weight: .semibold))
                 Text("4").font(.system(size: 12, weight: .medium)).frame(width: 16, height: 16)  .foregroundColor(AppColors.tabbarTintColor).background(AppColors.tabbarBackgroundColor.opacity(8)) .clipShape(RoundedRectangle(cornerRadius: 8))
                 Spacer()
-                NavigationLink(destination: AddTaskOKRView()) {
-                    Image(systemName: "plus").foregroundColor(.black)
+                NavigationLink(destination: AddTaskOKRView(onSave: { task in
+                    
+                })) {
+                    Image(systemName: "plus.circle.fill").foregroundColor(AppColors.primaryColor).font(.system(size: 22, weight: .bold))
                 }
             }
             

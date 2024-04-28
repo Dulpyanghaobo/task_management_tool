@@ -11,9 +11,19 @@ struct AppColors {
     // Core Color
     static let primaryColor = Color(hex: "5F33E1")
     static let secondaryColor = Color(hex: "EDE8FF")
-    static let systemBackgroundColor = Color(hex: "EFF1F5")
+    static let systemBackgroundColor = Color(hex: "F5F5F7")
     static let tabbarBackgroundColor = Color(hex: "EDE8FF")
     static let tabbarTintColor = Color(hex: "5F33E1")
+    static let primary2Color = Color(hex: "FF7D53")
+    static let secondary2Color = Color(hex: "FFE9E1")
+    static let primary3Color = Color(hex: "0087FF")
+    static let secondary3Color = Color(hex: "E3F2FF")
+    static let primary4Color = Color(hex: "F478B8")
+    static let secondary4Color = Color(hex: "FFE4F2")
+    static let primary5Color = Color(hex: "FFD12E")
+    static let secondary5Color = Color(hex: "FFF6D4")
+    static let primary6Color = Color(hex: "45BAC5")
+    static let secondary6Color = Color(hex: "84C5CB")
     
     static let homePageProgress1Color = Color(hex: "E7F3FF")
     static let homePageProgress2Color = Color(hex: "FFE9E1")
@@ -22,6 +32,14 @@ struct AppColors {
     static let homePageProgress3Color = Color(hex: "EDE4FF")
     static let homePageProgress4Color = Color(hex: "FFE6D4")
     static let homePageProgress5Color = Color(hex: "FFF6D4")
+
+    static let whiteColor = Color(hex: "FFFFFF")
+    static let sliderColor = Color(hex: "6B6A7B")
+    static let bronzeColor = Color(hex: "87704F")
+    static let blackIronColor = Color(hex: "CBC6C5")
+
+    
+    static let goldColor = Color(hex: "E3A302")
 
     
     
@@ -55,7 +73,6 @@ struct AppColors {
     static let listColor = Color(hex: "FFFFFF")
     static let cardColor = Color(hex: "FFF8E1")
     static let dialogColor = Color(hex: "E3F2FD")
-    static let sliderColor = Color(hex: "9C27B0")
     static let switchColor = Color(hex: "FF9800")
     static let iconColor = Color(hex: "000000")
     static let loadingIndicatorColor = Color(hex: "03A9F4")
