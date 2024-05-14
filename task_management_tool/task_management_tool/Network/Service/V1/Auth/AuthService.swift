@@ -9,16 +9,15 @@ import Moya
 import Foundation
 
 enum AuthService {
-    case register(name: String, email: String, password: String)
+    case register(userRequest: UserRegistrationRequest)
     case login(email: String, password: String)
-    case verifyActivityCode(email: String, code: String)
+    case verifyActivityCode(userId: String, token: String)
     case sendActivityCode(email: String, code: String)
     case clearAccount(userId: String, password: String)
     
     case sendPasswordResetCode(email: String)
     case sendPasswordVerifyCode(email: String, code: String)
     case resetPassword(email: String, password: String)
-
 }
 
 extension AuthService: TargetType {
@@ -60,11 +59,8 @@ extension AuthService: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .register(let name, let email, let password):
-            return .requestParameters(
-                parameters: ["name": name, "email": email, "password": password],
-                encoding: JSONEncoding.default
-            )
+        case .register(let userRequest):
+            return .requestJSONEncodable(userRequest)
         case .login(let email, let password):
             return .requestParameters(
                 parameters: ["email": email, "password": password],
@@ -85,9 +81,9 @@ extension AuthService: TargetType {
                 parameters: ["email": email, "newPassword": newPassword],
                 encoding: JSONEncoding.default
             )
-        case .verifyActivityCode(email: let email, code: let code):
+        case .verifyActivityCode(userId: let userId, token: let token):
             return .requestParameters(
-                parameters: ["token": code, "email": email],
+                parameters: ["userId": userId, "token": token],
                 encoding: JSONEncoding.default
             )
         case .clearAccount(userId: let email, password: let password):

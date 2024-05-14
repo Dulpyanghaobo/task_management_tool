@@ -14,7 +14,6 @@ protocol Networkable {
     func request<T: Decodable>(target: Target, completion: @escaping (Result<T, NetworkError>) -> Void)
 }
 
-
 class NetworkManager<Target: TargetType>: Networkable {
     var provider = MoyaProvider<Target>()
 
@@ -23,8 +22,17 @@ class NetworkManager<Target: TargetType>: Networkable {
             switch result {
             case let .success(response):
                 do {
-                    let results = try JSONDecoder().decode(T.self, from: response.data)
-                    completion(.success(results))
+                    do {
+                         let statusCode = response.statusCode
+                         if statusCode >= 200 && statusCode <= 299 {
+                             let results = try JSONDecoder().decode(T.self, from: response.data)
+                             completion(.success(results))
+                         } else {
+                             completion(.failure(.invalidResponse(statusCode)))
+                         }
+                     } catch {
+                         completion(.failure(.unableToDecode))
+                     }
                 } catch {
                     completion(.failure(.unableToDecode))
                 }
@@ -37,17 +45,35 @@ class NetworkManager<Target: TargetType>: Networkable {
 
     private func parseError(moyaError: MoyaError) -> NetworkError {
         if let response = moyaError.response {
-            switch response.statusCode {
-            case 400...499:
+            let statusCode = response.statusCode
+            let error = self.parseErrorFromResponse(response)
+            
+            switch statusCode {
+            case 400:
                 return .badRequest
+            case 401:
+                return .unauthorized
+            case 403:
+                return .forbidden
+            case 404:
+                return .notFound
+            case 409:
+                return .conflict
             case 500...599:
                 return .serverError
             default:
-                return .unknown
+                return error ?? .unknown
             }
         } else {
-            return .failed
+            return .failed(moyaError)
         }
     }
+    
+    private func parseErrorFromResponse(_ response: Response) -> NetworkError? {
+        guard let data = try? response.mapJSON() as? [String: Any],
+              let message = data["message"] as? String else {
+            return nil
+        }
+        return NetworkError.failed(NSError(domain: "NetworkError", code: response.statusCode, userInfo: [NSLocalizedDescriptionKey: message]))
+    }
 }
-

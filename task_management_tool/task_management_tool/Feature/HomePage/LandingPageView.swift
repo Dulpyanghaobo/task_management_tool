@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LandingPageView: View {
+    @State private var showMoodSelection = false
+
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
@@ -15,6 +17,7 @@ struct LandingPageView: View {
                     
                     VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 24) {
                         HeaderSection().id("top")
+                        MoodSelectionSection(showMoodSelection: $showMoodSelection)
                         // 今日任务
                         TodayTaskSection()
 
@@ -39,6 +42,8 @@ struct LandingPageView: View {
                     .edgesIgnoringSafeArea(.all)  // 让背景图片延伸到安全区域之
             )
             
+        }.sheet(isPresented: $showMoodSelection) {
+            MoodSelectionView()
         }
 
     }
@@ -269,6 +274,25 @@ struct OKRGroupCard: View {
     }
 }
 
+struct MoodSelectionSection: View {
+    @Binding var showMoodSelection: Bool
+    
+    var body: some View {
+        VStack(alignment: .center, spacing: 16) {
+            Text("How do you feel today?").font(.system(size: 20, weight: .semibold))
+            HStack(alignment: .center, spacing: 16) {
+                ForEach(0..<5) { index in
+                    Image("mood\(index)")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .onTapGesture {
+                            showMoodSelection = true
+                        }
+                }
+            }.padding(.horizontal, 16)
+        }.padding().background(.white).cornerRadius(24).shadow(color: .gray, radius: 1, x: 1, y: 3)
+    }
+}
 
 struct ScrollToTopButton: View {
     let scrollTo: () -> Void  // 接收一个闭包，用于滚动动作
@@ -286,3 +310,4 @@ struct ScrollToTopButton: View {
         }
     }
 }
+

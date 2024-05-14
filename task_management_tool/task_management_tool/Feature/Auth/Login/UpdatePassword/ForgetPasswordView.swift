@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-
-
-
-
 struct ForgetPasswordView: View {
     @State private var email: String = ""
 
@@ -38,7 +34,7 @@ struct ForgetPasswordView: View {
                 .border(AppColors.textFieldBorderColor, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 .cornerRadius(8)
             
-            NavigationLink(destination: VerificationView()) {
+            NavigationLink(destination: VerificationView(userId: "")) {
                 Text("Send Code")
                     .foregroundColor(.white)
                     .padding()

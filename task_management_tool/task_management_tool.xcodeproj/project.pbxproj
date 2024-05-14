@@ -25,6 +25,8 @@
 		FA24CC4A2BDE6FD20016A10F /* FriendUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24CC492BDE6FD20016A10F /* FriendUser.swift */; };
 		FA24CC4C2BDE6FFA0016A10F /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24CC4B2BDE6FFA0016A10F /* Conversation.swift */; };
 		FA24CC4F2BDE94300016A10F /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24CC4E2BDE94300016A10F /* ChatDetailView.swift */; };
+		FA24CC5C2BDF64D80016A10F /* MoodSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24CC5B2BDF64D80016A10F /* MoodSelectionView.swift */; };
+		FA24CC5F2BDF6A250016A10F /* MoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24CC5E2BDF6A250016A10F /* MoodModel.swift */; };
 		FA312F272BBCF9F400CC6CBC /* UserFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312F262BBCF9F400CC6CBC /* UserFormView.swift */; };
 		FA312F2A2BBCFA1800CC6CBC /* UserBodyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312F292BBCFA1800CC6CBC /* UserBodyInfo.swift */; };
 		FA312F2F2BBD32F400CC6CBC /* GoalSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312F2E2BBD32F400CC6CBC /* GoalSelectionView.swift */; };
@@ -65,6 +67,11 @@
 		FA88B8EA2BD62EDD0073CFA2 /* ActionGenerateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B8E92BD62EDD0073CFA2 /* ActionGenerateView.swift */; };
 		FA88B8EC2BD660470073CFA2 /* ActionDetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B8EB2BD660470073CFA2 /* ActionDetailItemView.swift */; };
 		FA88B8F92BD776E60073CFA2 /* ChatPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88B8F82BD776E60073CFA2 /* ChatPageView.swift */; };
+		FA9998E82BF1F3E50039A139 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9998E72BF1F3E50039A139 /* ApiResponse.swift */; };
+		FA9998EB2BF1F42A0039A139 /* UserRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9998EA2BF1F42A0039A139 /* UserRegistrationRequest.swift */; };
+		FA9998ED2BF1F95E0039A139 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9998EC2BF1F95E0039A139 /* LoadingView.swift */; };
+		FA9998F02BF1FE7E0039A139 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9998EF2BF1FE7E0039A139 /* RegisterViewModel.swift */; };
+		FA9998F32BF200EB0039A139 /* VerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9998F22BF200EB0039A139 /* VerificationViewModel.swift */; };
 		FAB3F2DD2BCFCAF30024B84E /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = FAB3F2DC2BCFCAF30024B84E /* CombineMoya */; };
 		FAB3F2DF2BCFCAF30024B84E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = FAB3F2DE2BCFCAF30024B84E /* Moya */; };
 		FAB3F2E12BCFCAF30024B84E /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = FAB3F2E02BCFCAF30024B84E /* ReactiveMoya */; };
@@ -86,7 +93,6 @@
 		FACD68AC2BCFBD4B000E62C4 /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD68AB2BCFBD4B000E62C4 /* APIEnvironment.swift */; };
 		FACD68AE2BCFBDD9000E62C4 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD68AD2BCFBDD9000E62C4 /* NetworkError.swift */; };
 		FACD68B02BCFBEB9000E62C4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD68AF2BCFBEB9000E62C4 /* NetworkManager.swift */; };
-		FACD68C12BCFC52D000E62C4 /* TestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD68C02BCFC52D000E62C4 /* TestService.swift */; };
 		FAD43BB02B03541E004B3D49 /* task_management_toolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD43BAF2B03541E004B3D49 /* task_management_toolApp.swift */; };
 		FAD43BB72B03541E004B3D49 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD43BB62B03541E004B3D49 /* ContentView.swift */; };
 		FAD43BB92B035420004B3D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD43BB82B035420004B3D49 /* Assets.xcassets */; };
@@ -132,6 +138,8 @@
 		FA24CC492BDE6FD20016A10F /* FriendUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendUser.swift; sourceTree = "<group>"; };
 		FA24CC4B2BDE6FFA0016A10F /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		FA24CC4E2BDE94300016A10F /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
+		FA24CC5B2BDF64D80016A10F /* MoodSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectionView.swift; sourceTree = "<group>"; };
+		FA24CC5E2BDF6A250016A10F /* MoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodModel.swift; sourceTree = "<group>"; };
 		FA312F262BBCF9F400CC6CBC /* UserFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormView.swift; sourceTree = "<group>"; };
 		FA312F292BBCFA1800CC6CBC /* UserBodyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBodyInfo.swift; sourceTree = "<group>"; };
 		FA312F2E2BBD32F400CC6CBC /* GoalSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSelectionView.swift; sourceTree = "<group>"; };
@@ -172,6 +180,11 @@
 		FA88B8E92BD62EDD0073CFA2 /* ActionGenerateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionGenerateView.swift; sourceTree = "<group>"; };
 		FA88B8EB2BD660470073CFA2 /* ActionDetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDetailItemView.swift; sourceTree = "<group>"; };
 		FA88B8F82BD776E60073CFA2 /* ChatPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageView.swift; sourceTree = "<group>"; };
+		FA9998E72BF1F3E50039A139 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		FA9998EA2BF1F42A0039A139 /* UserRegistrationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationRequest.swift; sourceTree = "<group>"; };
+		FA9998EC2BF1F95E0039A139 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		FA9998EF2BF1FE7E0039A139 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		FA9998F22BF200EB0039A139 /* VerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewModel.swift; sourceTree = "<group>"; };
 		FAB3F2EE2BCFD18A0024B84E /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		FAB3F2F22BCFD24A0024B84E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FAB3F2F62BCFD6440024B84E /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
@@ -192,7 +205,6 @@
 		FACD68BB2BCFC376000E62C4 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		FACD68BC2BCFC39C000E62C4 /* QA.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QA.xcconfig; sourceTree = "<group>"; };
 		FACD68BD2BCFC3AF000E62C4 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		FACD68C02BCFC52D000E62C4 /* TestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestService.swift; sourceTree = "<group>"; };
 		FAD43BAC2B03541E004B3D49 /* task_management_tool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = task_management_tool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD43BAF2B03541E004B3D49 /* task_management_toolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = task_management_toolApp.swift; sourceTree = "<group>"; };
 		FAD43BB62B03541E004B3D49 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -285,6 +297,7 @@
 		FA1FFF7B2BCF974A003D98EA /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				FA9998E92BF1F41D0039A139 /* Entity */,
 				FA24CC3F2BDE1CA40016A10F /* Login */,
 				FA24CC3E2BDE1C9D0016A10F /* UserCenter */,
 			);
@@ -297,6 +310,7 @@
 				FA312F292BBCFA1800CC6CBC /* UserBodyInfo.swift */,
 				FA1FFF802BCF97DF003D98EA /* UserInfo.swift */,
 				FAB3F2EE2BCFD18A0024B84E /* TestModel.swift */,
+				FA24CC5E2BDF6A250016A10F /* MoodModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -304,6 +318,7 @@
 		FA1FFF7F2BCF97BC003D98EA /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				FA24CC5A2BDF64CC0016A10F /* Mood */,
 				FA58A6CA2BD79DF00011C604 /* Project */,
 				FA88B8F72BD776CF0073CFA2 /* Chat */,
 				FA88B8E22BD60C2F0073CFA2 /* ActionMode */,
@@ -334,14 +349,11 @@
 		FA24CC3F2BDE1CA40016A10F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				FA59B0332BD20DF800AC6B34 /* CreatePasswordView.swift */,
-				FAB3F2F92BCFD86F0024B84E /* LoginView.swift */,
 				FAB3F3032BD0F6730024B84E /* WelcomeView.swift */,
-				FAB3F3052BD0F7520024B84E /* RegisterView.swift */,
-				FA59B0262BD1235200AC6B34 /* VerificationView.swift */,
-				FA59B0282BD1FECC00AC6B34 /* RegisterResultView.swift */,
-				FA59B02D2BD205D600AC6B34 /* ForgetPasswordView.swift */,
-				FA59B02F2BD20C4400AC6B34 /* PasswordChangedView.swift */,
+				FAC1A9332BF205D2006CFF41 /* UpdatePassword */,
+				FAC1A9322BF205C1006CFF41 /* Login */,
+				FA9998F12BF200D50039A139 /* Verification */,
+				FA9998EE2BF1FE660039A139 /* Register */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -361,6 +373,14 @@
 			children = (
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		FA24CC5A2BDF64CC0016A10F /* Mood */ = {
+			isa = PBXGroup;
+			children = (
+				FA24CC5B2BDF64D80016A10F /* MoodSelectionView.swift */,
+			);
+			path = Mood;
 			sourceTree = "<group>";
 		};
 		FA312F242BBCF9C600CC6CBC /* Health */ = {
@@ -464,8 +484,9 @@
 		FA5114912BD24145001E32B0 /* V1 */ = {
 			isa = PBXGroup;
 			children = (
+				FA9998E62BF1EAB20039A139 /* Mood */,
+				FA9998E52BF1EAAA0039A139 /* User */,
 				FA24CC4D2BDE701E0016A10F /* Chat */,
-				FAB3F2F22BCFD24A0024B84E /* UserService.swift */,
 				FA51148E2BD24079001E32B0 /* Auth */,
 			);
 			path = V1;
@@ -484,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				FA58A6D42BD897840011C604 /* HorizontalCalendarView.swift */,
+				FA9998EC2BF1F95E0039A139 /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -540,12 +562,72 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		FA9998E52BF1EAAA0039A139 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3F2F22BCFD24A0024B84E /* UserService.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		FA9998E62BF1EAB20039A139 /* Mood */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mood;
+			sourceTree = "<group>";
+		};
+		FA9998E92BF1F41D0039A139 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FA9998EA2BF1F42A0039A139 /* UserRegistrationRequest.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		FA9998EE2BF1FE660039A139 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				FA59B0282BD1FECC00AC6B34 /* RegisterResultView.swift */,
+				FAB3F3052BD0F7520024B84E /* RegisterView.swift */,
+				FA9998EF2BF1FE7E0039A139 /* RegisterViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		FA9998F12BF200D50039A139 /* Verification */ = {
+			isa = PBXGroup;
+			children = (
+				FA59B0262BD1235200AC6B34 /* VerificationView.swift */,
+				FA9998F22BF200EB0039A139 /* VerificationViewModel.swift */,
+			);
+			path = Verification;
+			sourceTree = "<group>";
+		};
 		FAB3F2F52BCFD62F0024B84E /* Store */ = {
 			isa = PBXGroup;
 			children = (
 				FAB3F2F62BCFD6440024B84E /* UserDefaultsKey.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		FAC1A9322BF205C1006CFF41 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FAB3F2F92BCFD86F0024B84E /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FAC1A9332BF205D2006CFF41 /* UpdatePassword */ = {
+			isa = PBXGroup;
+			children = (
+				FA59B02F2BD20C4400AC6B34 /* PasswordChangedView.swift */,
+				FA59B0332BD20DF800AC6B34 /* CreatePasswordView.swift */,
+				FA59B02D2BD205D600AC6B34 /* ForgetPasswordView.swift */,
+			);
+			path = UpdatePassword;
 			sourceTree = "<group>";
 		};
 		FACD689B2BCFAF06000E62C4 /* Extension */ = {
@@ -589,6 +671,7 @@
 				FACD68AB2BCFBD4B000E62C4 /* APIEnvironment.swift */,
 				FACD68AD2BCFBDD9000E62C4 /* NetworkError.swift */,
 				FACD68AF2BCFBEB9000E62C4 /* NetworkManager.swift */,
+				FA9998E72BF1F3E50039A139 /* ApiResponse.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -597,7 +680,6 @@
 			isa = PBXGroup;
 			children = (
 				FA5114912BD24145001E32B0 /* V1 */,
-				FACD68C02BCFC52D000E62C4 /* TestService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -822,6 +904,7 @@
 				FACD68A52BCFB84B000E62C4 /* NetworkImageView.swift in Sources */,
 				FACD689F2BCFAF97000E62C4 /* Color+App.swift in Sources */,
 				FA88B8E42BD60C6B0073CFA2 /* ActionModeView.swift in Sources */,
+				FA24CC5F2BDF6A250016A10F /* MoodModel.swift in Sources */,
 				FA312F4A2BBD390600CC6CBC /* MilestoneDetailView.swift in Sources */,
 				FACD68AC2BCFBD4B000E62C4 /* APIEnvironment.swift in Sources */,
 				FA59B0392BD22E7A00AC6B34 /* UserProfileView.swift in Sources */,
@@ -850,6 +933,7 @@
 				FA59B0372BD2291C00AC6B34 /* SettingsView.swift in Sources */,
 				FAD43BB02B03541E004B3D49 /* task_management_toolApp.swift in Sources */,
 				FAB3F2EF2BCFD18A0024B84E /* TestModel.swift in Sources */,
+				FA9998EB2BF1F42A0039A139 /* UserRegistrationRequest.swift in Sources */,
 				FA312F4C2BBD3D1300CC6CBC /* GoalDetail.swift in Sources */,
 				FA312F3F2BBD356D00CC6CBC /* GoalType.swift in Sources */,
 				FA59B0412BD22E9F00AC6B34 /* HealthKitSettingsView.swift in Sources */,
@@ -864,8 +948,10 @@
 				FA59B03D2BD22E9100AC6B34 /* SoundSettingsView.swift in Sources */,
 				FA59B03F2BD22E9800AC6B34 /* TouchFeedbackSettingsView.swift in Sources */,
 				FA1C57152B055C9800DF310A /* TaskRowContentView.swift in Sources */,
+				FA9998E82BF1F3E50039A139 /* ApiResponse.swift in Sources */,
 				FA312F2F2BBD32F400CC6CBC /* GoalSelectionView.swift in Sources */,
 				FAB3F3062BD0F7520024B84E /* RegisterView.swift in Sources */,
+				FA24CC5C2BDF64D80016A10F /* MoodSelectionView.swift in Sources */,
 				FA58A6D22BD7FE510011C604 /* Font+Extension.swift in Sources */,
 				FA58A6CC2BD79E030011C604 /* ProjectPageView.swift in Sources */,
 				FACD689D2BCFAF46000E62C4 /* Color+Extension.swift in Sources */,
@@ -873,8 +959,10 @@
 				FA24CC482BDE6FBF0016A10F /* Message.swift in Sources */,
 				FA24CC4A2BDE6FD20016A10F /* FriendUser.swift in Sources */,
 				FA88B8EC2BD660470073CFA2 /* ActionDetailItemView.swift in Sources */,
+				FA9998F02BF1FE7E0039A139 /* RegisterViewModel.swift in Sources */,
 				FA24CC4C2BDE6FFA0016A10F /* Conversation.swift in Sources */,
 				FA59B02E2BD205D600AC6B34 /* ForgetPasswordView.swift in Sources */,
+				FA9998ED2BF1F95E0039A139 /* LoadingView.swift in Sources */,
 				FA312F372BBD345000CC6CBC /* GoalConfirmationView.swift in Sources */,
 				FA59B02C2BD2012200AC6B34 /* ViewRouter.swift in Sources */,
 				FA58A6D72BD89BF80011C604 /* Date+formatted.swift in Sources */,
@@ -887,7 +975,7 @@
 				FA59B0432BD22EA700AC6B34 /* PrivacyPolicyView.swift in Sources */,
 				FA59B0302BD20C4400AC6B34 /* PasswordChangedView.swift in Sources */,
 				FA58A6D52BD897840011C604 /* HorizontalCalendarView.swift in Sources */,
-				FACD68C12BCFC52D000E62C4 /* TestService.swift in Sources */,
+				FA9998F32BF200EB0039A139 /* VerificationViewModel.swift in Sources */,
 				FA312F2A2BBCFA1800CC6CBC /* UserBodyInfo.swift in Sources */,
 				FA1C57182B0578AA00DF310A /* TimeContentView.swift in Sources */,
 			);
@@ -1008,6 +1096,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = task_management_tool/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Universal Assistant";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1018,12 +1108,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "super.hab.task-management-tool-list";
+				PRODUCT_BUNDLE_IDENTIFIER = "super.hab.task-management-tool-prod";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -1163,6 +1253,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = task_management_tool/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Universal Assistant";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1173,12 +1265,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "super.hab.task-management-tool-list";
+				PRODUCT_BUNDLE_IDENTIFIER = "super.hab.task-management-tool-prod";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -1375,6 +1467,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = task_management_tool/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Universal Assistant";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1385,12 +1479,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "super.hab.task-management-tool-list";
+				PRODUCT_BUNDLE_IDENTIFIER = "super.hab.task-management-tool-prod";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -1419,6 +1513,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = task_management_tool/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Universal Assistant";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1429,12 +1525,12 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "super.hab.task-management-tool-list";
+				PRODUCT_BUNDLE_IDENTIFIER = "super.hab.task-management-tool-prod";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;

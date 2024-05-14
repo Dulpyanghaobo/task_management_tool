@@ -8,12 +8,52 @@
 import Foundation
 
 enum NetworkError: Error {
-    case serverError
-    case authenticationError
     case badRequest
-    case outdated
-    case failed
-    case noData
+    case unauthorized
+    case forbidden
+    case notFound
+    case conflict
+    case serverError
     case unableToDecode
     case unknown
+    case failed(Error)
+    case invalidRequest
+    case invalidImage
+    case invalidResponse(Int)
+    case underlying(Error)
+
+    var localizedDescription: String {
+        switch self {
+        case .badRequest:
+            return "Invalid request"
+        case .unauthorized:
+            return "Unauthorized access"
+        case .forbidden:
+            return "Access forbidden"
+        case .notFound:
+            return "Resource not found"
+        case .conflict:
+            return "Resource conflict"
+        case .serverError:
+            return "Internal server error"
+        case .unableToDecode:
+            return "Unable to decode response"
+        case .unknown:
+            return "Unknown error"
+        case .failed(let error):
+            return error.localizedDescription
+        case .invalidRequest:
+            return "Unable to decode response"
+
+        case .invalidImage:
+            return "Unable to decode response"
+
+        case .invalidResponse(_):
+            return "Unable to decode response"
+
+        case .underlying(_):
+            return "Unable to decode response"
+
+        }
+    }
 }

@@ -9,10 +9,8 @@ import SwiftUI
 import AuthenticationServices  // 导入支持苹果登录的库
 
 struct RegisterView: View {
-    @State private var username: String = ""
-    @State private var password: String = ""
-    @State private var isPasswordVisible: Bool = false
-    
+    @StateObject private var viewModel = RegisterViewModel()
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
                 HStack {
@@ -22,41 +20,44 @@ struct RegisterView: View {
                         .padding(.vertical, 24)
                 }
 
-                TextField("Username", text: $username)
+            TextField("Username", text: $viewModel.username)
                     .padding() // 减小左右内边距
                     .background(Color.secondary.opacity(0.1))
                     .font(.system(size: 15,weight: .light))
                     .border(AppColors.textFieldBorderColor, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .cornerRadius(8)
-                TextField("Email", text: $username)
+            TextField("Email", text: $viewModel.email)
                     .padding() // 减小左右内边距
                     .background(Color.secondary.opacity(0.1))
                     .font(.system(size: 15,weight: .light))
                     .border(AppColors.textFieldBorderColor, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .cornerRadius(8)
-                SecureField("Password", text: $password)
+            SecureField("Password", text: $viewModel.password)
                     .padding() // 减小左右内边距
                     .background(Color.secondary.opacity(0.1))
                     .font(.system(size: 15,weight: .light))
                     .border(AppColors.textFieldBorderColor, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .cornerRadius(8)
-                SecureField("Confirm Password", text: $password)
+            SecureField("Confirm Password", text: $viewModel.confirmPassword)
                     .padding() // 减小左右内边距
                     .background(Color.secondary.opacity(0.1))
                     .cornerRadius(8)
                     .font(.system(size: 15,weight: .light))
                     .border(AppColors.textFieldBorderColor, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .cornerRadius(8)
-                NavigationLink(destination: VerificationView()) {
-                    Text("Register")
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(AppColors.primaryColor)
-                        .cornerRadius(8)
-                        .font(.system(size: 15,weight: .semibold))
-                        .padding(.vertical, 24)
-                }
+            Button(action: {
+                viewModel.register()
+            }) {
+                Text("Register")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(AppColors.primaryColor)
+                    .cornerRadius(8)
+                    .font(.system(size: 15,weight: .semibold))
+                    .padding(.vertical, 24)
+            }
+            
                 Text("Or Register with")
                     .frame(maxWidth: .infinity, alignment: .center).font(.system(size: 14)).foregroundColor(AppColors.secondaryTitleColor)
                 
@@ -81,7 +82,14 @@ struct RegisterView: View {
             }
             .padding(.horizontal, 24) // 减小整个 VStack 的水平内边距
         .navigationBarTitle("", displayMode: .inline).navigationBarBackButtonHidden().navigationBarItems(leading: BackButton())
+        .alert(isPresented: $viewModel.showAlert, content: {
+            Alert(title: Text("Registration Failed"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
+        })
+        .background(
+            NavigationLink(destination: VerificationView(userId: viewModel.userId), isActive: $viewModel.isRegistered) {
+                EmptyView()
+            }
+        )
+        .withLoading(isLoading: viewModel.isLoading, text: "Loading...")
     }
 }
-
-
